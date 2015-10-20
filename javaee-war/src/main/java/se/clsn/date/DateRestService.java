@@ -1,5 +1,6 @@
 package se.clsn.date;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -11,13 +12,14 @@ import javax.ws.rs.core.MediaType;
 @Path("/date")
 public class DateRestService {
 
-    @Inject
+    @EJB
     DateService dateService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject getHelloWorldJSON() {
-        return Json.createObjectBuilder().add("date", dateService.getDate()).build();
+    public JsonObject getDate() {
+        String date = dateService.getDate();
+        return Json.createObjectBuilder().add("date", date).build();
     }
 
 

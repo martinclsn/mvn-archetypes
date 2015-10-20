@@ -9,5 +9,6 @@
 
     <modules>
         <module>javaee-war</module>
+        <module>javaee-in-docker</module>
     </modules>
 </project>
